@@ -1,5 +1,10 @@
 <template>
-    <div>{{$route.params.id+"-"+$route.params.name}}</div>
+    <transition name="slide">
+        <div>
+            <div>foo-{{id}}</div>
+            <router-view></router-view>
+        </div>
+    </transition>
 </template>
 <script>
 export default {
@@ -8,8 +13,24 @@ export default {
 
         }
     },
+    props:{
+        id:{
+            type:Number,
+            default:""
+        }
+    },
     mounted(){
-        console.log(this.$route.params)
+    },
+    beforeRouteEnter (to, from, next) {
+        // ...
+        next(vm => {
+            console.log(vm)
+        })
+    },
+    beforeRouteLeave (to, from, next) {
+        // ...
+        next()
+        console.log(this,"leave");
     }
 }
 </script>

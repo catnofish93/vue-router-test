@@ -1,5 +1,5 @@
 <template>
-    <div>{{$route.params.id+"-"+$route.params.name}}</div>
+    <div>bar</div>
 </template>
 <script>
 export default {
