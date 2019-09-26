@@ -1,36 +1,19 @@
 <template>
-    <transition name="slide">
-        <div>
-            <div>foo-{{id}}</div>
-            <router-view></router-view>
-        </div>
-    </transition>
+<div>
+    <div>{{count}}</div>
+</div>
+    
 </template>
 <script>
+import {mapState,mapGetters,mapMutations,mapActions} from "vuex"
 export default {
     data(){
-        return{
-
-        }
-    },
-    props:{
-        id:{
-            type:Number,
-            default:""
+        return {
+            count:"foo"
         }
     },
     mounted(){
-    },
-    beforeRouteEnter (to, from, next) {
-        // ...
-        next(vm => {
-            console.log(vm)
-        })
-    },
-    beforeRouteLeave (to, from, next) {
-        // ...
-        next()
-        console.log(this,"leave");
+        console.log(this)
     }
 }
 </script>
